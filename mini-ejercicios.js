@@ -123,13 +123,50 @@ function lanzarMini4() {
 
   // Ejecutamos las dos versiones y devolvemos una promesa
   // por ejemplo, que espere a que terminen ambas
-  return Promise.all([
-    cargarEnFila(), 
-    cargarJuntas()
-  ]);
+  return Promise.all([cargarEnFila(), cargarJuntas()]);
 }
 
-function lanzarMini5() {}
+function lanzarMini5() {
+  console.log(
+    "%cEtapa 5 · Cuando la secuencia es obligatoria",
+    "font-weight: bold; color: green; font-size: 15px;",
+  );
+  console.log("");
+
+  function buscarUsuario(nombre) {
+    return new Promise((r) => setTimeout(() => r({ id: 7, nombre }), 300));
+  }
+
+  function postsDe(userId) {
+    return new Promise((r) =>
+      setTimeout(() => r([{ id: 10, titulo: "Mi primer post" }]), 300),
+    );
+  }
+
+  function comentariosDe(postId) {
+    return new Promise((r) =>
+      setTimeout(() => r(["¡Genial!", "Muy útil"]), 300),
+    );
+  }
+
+  async function cargarHilo() {
+    try {
+      const usuario = await buscarUsuario("Ana");
+      console.log("1. Usuario:", usuario);
+
+      const posts = await postsDe(usuario.id);
+      console.log("2. Posts:", posts);
+
+      const coments = await comentariosDe(posts[0].id);
+      console.log("3. Comentarios del primer post:", coments);
+    } catch (err) {
+      console.log("Error:", err.message);
+    }
+  }
+
+  // devolver la promesa de cargarHilo
+  return cargarHilo();
+}
 
 // Ahora sí, todas devuelven promesa:
 lanzarMini1()
