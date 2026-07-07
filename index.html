@@ -58,21 +58,45 @@
     }
   </style>
 </head>
-<body>
-  <div class="arcade-box">
-    <h1 class="text-warning fw-bold mb-4">Módulo 5 · JavaScript Asíncrono - async / await ⏳</h1>
+<body class="bg-dark text-light">
 
-    <div class="btn btn-warning blink-warning">
-      Debes abrir la consola para ver los resultados
+  <div class="container py-5">
+
+    <!-- Bloque arcade original -->
+    <div class="arcade-box text-center mb-5">
+      <h1 class="text-warning fw-bold mb-4">
+        Módulo 5 · JavaScript Asíncrono - async / await ⏳
+      </h1>
+
+      <div class="btn btn-warning blink-warning mb-3">
+        Debes abrir la consola para ver los resultados de los mini ejercicios.
+      </div>
+
+      <p class="subtitle">
+        Presiona <strong>F12</strong> y entra en <strong>Console</strong>
+        - El resultado del ejercicio final lo puedes ver abajo de este recuadro.
+      </p>
     </div>
 
-    <p class="subtitle">
-      Presiona <strong>F12</strong> y entra en <strong>Console</strong>
-    </p>
+    <!-- Panel de usuarios -->
+    <section class="card bg-secondary bg-opacity-10 border-0">
+      <div class="card-body">
+        <h2 class="h4 mb-3">Panel de usuarios</h2>
+
+        <div id="barra" class="mb-2"></div>
+        <div id="mensajes" class="mb-2 text-warning"></div>
+
+        <button id="btn-recargar" class="btn btn-primary mb-3">
+          Recargar
+        </button>
+
+        <div id="usuarios" class="row gy-3"></div>
+      </div>
+    </section>
+
   </div>
 
   <script src="mini-ejercicios.js"></script>
   <script src="ejercicio-final.js"></script>
-
 </body>
 </html>
